@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "math.h": "c",
-        "board.h": "c",
-        "check_strokes.h": "c"
-    }
-}
