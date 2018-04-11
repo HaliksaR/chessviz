@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include "check_strokes.h"
 #include "board.h"
 
 char **container;
@@ -35,9 +36,8 @@ char **_board() {
 }
 
 void print_new_board() {
-    char **nb;
-    nb = _board();
-    print_board(nb);
+    container = _board();
+    print_board(container);
 }
 
 void print_board(char **container) {
@@ -47,9 +47,9 @@ void print_board(char **container) {
         printf("\t  ");
         for (int j = 0; j < 9; j++) {
             if (j == 0) {
-                printf("%s%c %s", cyan, container[i][j], RESET);
+                printf("%s%c %s", CYAN, container[i][j], RESET);
             } else if (i == 8) {
-                printf("%s%c %s", cyan, container[i][j], RESET);
+                printf("%s%c %s", CYAN, container[i][j], RESET);
             } else {
                 printf("%c ", container[i][j]);
             }
@@ -66,7 +66,6 @@ char** movePawn(char **v, int* pozition) {
 
 int board_func(char *one_place, char *two_place) {
     int pozition[4];
-    container = _board();
     pozition[0] = one_place[0] - 96; //a
     pozition[1] = 9 - (one_place[1] - 48) - 1; //2
     pozition[2] = two_place[0] - 96; //c
