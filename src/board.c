@@ -7,31 +7,23 @@
 char **container;
 
 char **_board() {
-    container = (char**) malloc(9 * sizeof(char*));
     int i,j;
-    for (i = 0; i < 9; i++) {
-        container[i] = (char*)malloc(9 * sizeof(char));
-        for (j = 0; j < 9; j++) {
+    container = (char**)malloc(8 * sizeof(char*));
+    for (i = 0; i < 8; i++) {
+        container[i] = (char*)malloc(8 * sizeof(char));
+        for (j = 0; j < 8; j++) {
             container[i][j] = ' ';
         }
     }
     char gl[] = {'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'};
     char p = 'p';
-    // цыфры 
-    for (i = 0; i < 8; i++) {
-        container[i][0] = 56 - i;
-    }
-    // буквы
-    for (i = 1; i < 9; i++) {
-        container[8][i] = 96 + i;
-    }
 
-    for (i = 1; i < 9; i++) {
-        container[0][i] = gl[i-1];
-        container[7][i] = gl[i-1] - 32;
+    for (i = 0; i < 8; i++) {
+        container[0][i] = gl[i];
+        container[7][i] = gl[i] - 32;
         container[1][i] = p;
         container[6][i] = p - 32;
-    }      
+    }    
     return container; 
 }
 
@@ -40,23 +32,23 @@ void print_new_board() {
     print_board(container);
 }
 
-void print_board(char **container) {
+void print_board() {
     system("clear");
     printf("\n");
-    for (int i = 0; i < 9; i++) {
-        printf("\t  ");
-        for (int j = 0; j < 9; j++) {
-            if (j == 0) {
-                printf("%s%c %s", CYAN, container[i][j], RESET);
-            } else if (i == 8) {
-                printf("%s%c %s", CYAN, container[i][j], RESET);
-            } else {
-                printf("%c ", container[i][j]);
-            }
+    for (int i = 0; i < 8; i++) {
+        printf("\t  %s%d%s",CYAN, 8 - i, RESET);
+        for (int j = 0; j < 8; j++) {
+            printf(" %c", container[i][j]);
         }
         printf("\n");
-    } 
+    }
+    printf("\t   %s",CYAN);
+    for (char p = 'a'; p <= 'h'; p++) {
+        printf(" %c", p);
+    }
+    printf("%s\n", RESET);
 }
+
 char** movePawn(char **v, int* pozition) { 
     int poz = container[pozition[1]][pozition[0]];
     container[pozition[1]][pozition[0]] = container[pozition[3]][pozition[2]];
@@ -66,14 +58,17 @@ char** movePawn(char **v, int* pozition) {
 
 int board_func(char *one_place, char *two_place) {
     int pozition[4];
-    pozition[0] = one_place[0] - 96; //a
+    pozition[0] = one_place[0] - 96 - 1; //a
     pozition[1] = 9 - (one_place[1] - 48) - 1; //2
-    pozition[2] = two_place[0] - 96; //c
+    pozition[2] = two_place[0] - 96 - 1; //c
     pozition[3] = 9 - (two_place[1] - 48) - 1; //8
+    //printf ("%d %d %d %d", pozition[0], pozition[1], pozition[2], pozition[3]);
     printf("\n ");
+    int err = check_strokes(pozition, container);
+    if (err == -1) { return -1; }
 
     for(int g = 0; g < 4; g++) {
-        if (pozition[g] < 0 || pozition[g] > 9) {
+        if (pozition[g] < 0 || pozition[g] > 8) {
             return -1;
         }
     }

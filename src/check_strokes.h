@@ -1,2 +1,7 @@
+#ifndef __check_strokes__
+    #define __check_strokes__
 
-int main_stroke();
+
+int check_strokes(int* pozition, char** container);
+
+#endif
