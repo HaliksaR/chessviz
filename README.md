@@ -11,3 +11,5 @@
 4. ![screenshot from 2018-04-18 00 10 11](https://user-images.githubusercontent.com/35256960/38885408-0477d814-429d-11e8-856e-05f3df1a27cb.png)
 5. ![screenshot from 2018-04-18 00 10 22](https://user-images.githubusercontent.com/35256960/38885417-06373190-429d-11e8-8082-3464db044c77.png)
 6. ![screenshot from 2018-04-18 00 10 33](https://user-images.githubusercontent.com/35256960/38885420-0812f7b0-429d-11e8-8a08-97963e49fe05.png)
+7. ![screenshot from 2018-04-15 21 08 02](https://user-images.githubusercontent.com/35256960/38885684-fcd14676-429d-11e8-9de2-d1d83526fcff.png)
+
