@@ -1,6 +1,6 @@
 OBJ = 
 CC = gcc
-CFLAGS  = -Wall -Werror
+CFLAGS  = -Wall -Werror -std=c99
 
 .PHONY: clean open
 
