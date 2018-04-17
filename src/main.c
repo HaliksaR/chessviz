@@ -5,61 +5,69 @@
 
 void help_print();
 void info_print();
-
-char q;
+int board_main();
 
 int main() {
-    int i = 0;
-    char places[6];
-    int exitt = 0;
+    system("clear");
+    char q;
     info_print();
-    while ( i == 0) {
+    scanf("%c", &q);
+    if (q == 's') {
+        board_main();
+        return 0;
+    } else if (q == 'q'){
         system("clear");
-        info_print();
-        printf("\t    %s(s) Start or (q) Quit\n%s", GREEN, RESET);
-        printf("\t\t Command : ");
-        scanf("%c", &q);
+        printf("%sGoodbye!%s\n",RED, RESET);
+        return 0;
+    } else {
         system("clear");
-        print_new_board();
-        if (q == 's') {
-            i = -1;
-            while (exitt == 0) {
-                help_print();
-                printf("Write coordinates of the figure and \n   where to put it."
-                " Example a2-c8\n""\t%s      Command: ", GREEN);
-                scanf("%s", places);
-                printf("%s", RESET);
-                if (places[0] == 'r') {
-                    system("clear");
-                    exitt = 1;
-                    main();
-                }
-                system("clear");
-                exitt = board_func(places);
-                if (exitt == -1) {
-                    print_board();
-                    printf("%s\tWrong coordinates or way!\n%s", RED, RESET);
-                    exitt = 0;
-                    printf("%s", places);
-                    printf(" %c", q);
-                }
-            }
-        } else if (q == 'q') {
+        main();
+    }
+}
+
+char places[6];
+int exitt = 0;
+
+int board_main() {
+    system("clear");
+    print_new_board();
+    
+    while (exitt == 0) {
+        help_print();
+        printf("Write coordinates of the figure and \n   where to put it."
+        " Example a2-c8\n""\t\t%sCommand:\n\t\t ", GREEN);
+        scanf("%s", places);
+        printf("%s", RESET);
+        if (places[0] == 'r') {
             system("clear");
+            exitt = 1;
+            board_main();
+        } else if (places[0] == 'q') {
+            system("clear");
+            printf("%sGoodbye!%s\n",RED, RESET);
             return 0;
         }
-    }  
+        system("clear");
+        exitt = board_func(places);
+        if (exitt == -1) {
+            print_board();
+            if (places[0] == 'r') {
+                printf("%s\t\tRestart!\n%s", GREEN, RESET);
+            } else {
+                printf("%s\tWrong coordinates or way!\n%s", RED, RESET);
+            }
+            exitt = 0;
+        }
+    }
     return 0;
 }
 
-
 void help_print() {
-    printf("\t%s      (r)Restart\n\n%s", GRAY, RESET);
+    printf("\t%s(r) Restart  (q) Quit\n\n%s", GRAY, RESET);
 }
 
 void info_print() {
-    system("clear");
-    printf("%s"
+    printf("%s\n"
     "\t  ████──█──█──███──███──███\n"
     "\t  █──█──█──█──█────█────█\n"
     "\t  █─────████──███──███──███\n"
@@ -70,5 +78,7 @@ void info_print() {
     "\t████───█──█──████──████──█──██\n"
     "\t█──██──█──█──█──█──█─█───█──██\n"
     "\t████───████──█──█──█─█───████\n\n%s", RED, RESET);
-    printf("%s\t        Beta version\n\n\n%s", GRAY, RESET);
+    printf("%s\t        Beta version\n\n%s", GRAY, RESET);
+    printf("\t    %s(s) Start or (q) Quit\n", GREEN);
+    printf("\t\t  Command \n\t\t    %s", RESET);
 }
