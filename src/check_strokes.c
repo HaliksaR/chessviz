@@ -12,8 +12,12 @@ int check_strokes(int* pozition, char** container) {
     int xy[8][2] = {{1,-2},{1, 2},{-1,-2},{-1, 2},{2,-1},{2, 1},{-2, 1},{-2,-1}};
     switch (i) {
         case 'p': // Пешка
-            if (pozition[1] - 1 == pozition[3] && PROF) {
-                return 0;
+            g1 = pozition[3] - pozition[1]; 
+            g2 = pozition[2] - pozition[0];
+            if (( pow( g1, 2) == (1 || 0 || 4 )) && (g2 == 0 )) {
+                if (PROF) {
+                    return 0;
+                }
             }
             break;
         case 'r': // Ладья
@@ -51,12 +55,13 @@ int check_strokes(int* pozition, char** container) {
             }
             break;
         case 'k': // Король
-            g1 = pozition[0] - pozition[2];
-            g2 = pozition[1] - pozition[3];
-            if ((g1 == (1 || -1 )) || (g2 == (1 || -1 ))) {
-                    //if (PROF) {
+            g1 = pozition[2] - pozition[0];
+            g2 = pozition[3] - pozition[1];
+            if (( pow(g1, 2) == 1 || pow(g1, 2) == 0 ) && 
+            ( pow(g2, 2) == 0 || pow(g2, 2) == 1 )) {
+                if (PROF) {
                 return 0;
-                    //}
+                }
             }
             break;
     }

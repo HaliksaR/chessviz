@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 #include "check_strokes.h"
 #include "board.h"
 
@@ -56,12 +57,15 @@ char** movePawn(char **v, int* pozition) {
     return v;
 }
 
-int board_func(char *one_place, char *two_place) {
+int board_func(char *places) {
+    if (strlen(places) != 5) {
+        return -1;
+    }
     int pozition[4];
-    pozition[0] = one_place[0] - 96 - 1; //a
-    pozition[1] = 9 - (one_place[1] - 48) - 1; //2
-    pozition[2] = two_place[0] - 96 - 1; //c
-    pozition[3] = 9 - (two_place[1] - 48) - 1; //8
+    pozition[0] = places[0] - 96 - 1; //a
+    pozition[1] = 9 - (places[1] - 48) - 1; //2
+    pozition[2] = places[3] - 96 - 1; //c
+    pozition[3] = 9 - (places[4] - 48) - 1; //8
     //printf ("%d %d %d %d", pozition[0], pozition[1], pozition[2], pozition[3]);
     printf("\n ");
     int err = check_strokes(pozition, container);
