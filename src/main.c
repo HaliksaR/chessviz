@@ -23,6 +23,7 @@ int main() {
         system("clear");
         main();
     }
+    return 0;
 }
 
 char places[6];
