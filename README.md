@@ -1,12 +1,14 @@
-![screenshot from 2018-04-04 01 56 49](https://user-images.githubusercontent.com/35256960/38269720-7badb022-37ab-11e8-9a85-025c4544753f.png)
-
-![screenshot from 2018-04-04 01 57 50](https://user-images.githubusercontent.com/35256960/38269791-b1ce41a8-37ab-11e8-8310-e8575fb9bb49.png)
-![screenshot from 2018-04-04 01 58 06](https://user-images.githubusercontent.com/35256960/38269792-b1f32b08-37ab-11e8-8fd5-a42b6fae4b76.png)
-![screenshot from 2018-04-04 01 58 30](https://user-images.githubusercontent.com/35256960/38269794-b216ebb0-37ab-11e8-9504-23f21fd8e9df.png)
+[![Build Status](https://travis-ci.org/HaliksaR/chessviz.svg?branch=master)](https://travis-ci.org/HaliksaR/chessviz)
 
 Make commands:
-	make adddir \\создание папок build bin
+	```
 	make \\компилирование программы
 	make clean \\ очистка папок build bin
 	make open \\запуск программы
-	make gdb \\отладка программы
+	```
+![screenshot from 2018-04-18 00 09 10](https://user-images.githubusercontent.com/35256960/38885375-fd63d546-429c-11e8-93e3-bd1a398f2955.png)
+![screenshot from 2018-04-18 00 09 35](https://user-images.githubusercontent.com/35256960/38885378-0088e2d4-429d-11e8-8e5c-1b2e6fdeb09b.png)
+![screenshot from 2018-04-18 00 10 03](https://user-images.githubusercontent.com/35256960/38885392-02dbbf20-429d-11e8-9a1d-d61d7be66040.png)
+![screenshot from 2018-04-18 00 10 11](https://user-images.githubusercontent.com/35256960/38885408-0477d814-429d-11e8-856e-05f3df1a27cb.png)
+![screenshot from 2018-04-18 00 10 22](https://user-images.githubusercontent.com/35256960/38885417-06373190-429d-11e8-8082-3464db044c77.png)
+![screenshot from 2018-04-18 00 10 33](https://user-images.githubusercontent.com/35256960/38885420-0812f7b0-429d-11e8-8a08-97963e49fe05.png)
