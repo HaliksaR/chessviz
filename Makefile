@@ -9,7 +9,7 @@ default: bin/board
 test: ./bin/board-test
 	./bin/board-test
 
-./bin/board: ./build/main.o ./build/board.o ./build/check_strokes.o bin 
+./bin/board: ./build/main.o ./build/board.o ./build/check_strokes.o bin test
 		$(CC) $(CFLAGS) -o ./bin/board ./build/main.o ./build/board.o ./build/check_strokes.o -lm
 
 ./build/main.o: ./src/main.c ./src/board.h build
