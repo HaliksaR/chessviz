@@ -32,7 +32,6 @@ int exitt = 0;
 int board_main() {
     system("clear");
     print_new_board();
-    
     while (exitt == 0) {
         help_print();
         printf("Write coordinates of the figure and \n   where to put it."
@@ -49,7 +48,7 @@ int board_main() {
             return 0;
         }
         system("clear");
-        exitt = board_func(places);
+        exitt = board_func(places, 0);
         if (exitt == -1) {
             print_board();
             if (places[0] == 'r') {

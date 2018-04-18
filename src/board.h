@@ -8,6 +8,7 @@
     #define GRAY  "\033[2m"
 
     void print_new_board();
-    int board_func(char *places);
+    int board_func(char *places, int test);
     void print_board();
+    char **_board();
 #endif

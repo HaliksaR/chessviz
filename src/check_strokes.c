@@ -14,7 +14,7 @@ int check_strokes(int* pozition, char** container) {
         case 'p': // Пешка
             g1 = pozition[3] - pozition[1]; 
             g2 = pozition[2] - pozition[0];
-            if (( pow( g1, 2) == (1 || 0 || 4 )) && (g2 == 0 )) {
+            if (( pow( g1, 2 ) == 1 ||pow( g1, 2 ) == 0 || pow( g1, 2 ) == 4 ) && (g2 == 0 )) {
                 if (PROF) {
                     return 0;
                 }
